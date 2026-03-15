@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+:root {
+  background-color: #0a0f1e;
+  color: white;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+}
+
+@layer base {
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .backdrop-blur-xl {
+    backdrop-filter: blur(24px);
+  }
+  
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes glitch {
+  0% { clip-path: inset(40% 0 61% 0); transform: translate(-2px, 2px); }
+  20% { clip-path: inset(92% 0 1% 0); transform: translate(1px, -3px); }
+  40% { clip-path: inset(43% 0 1% 0); transform: translate(-1px, 2px); }
+  60% { clip-path: inset(25% 0 58% 0); transform: translate(3px, 1px); }
+  80% { clip-path: inset(54% 0 7% 0); transform: translate(-2px, -2px); }
+  100% { clip-path: inset(58% 0 43% 0); transform: translate(2px, 1px); }
+}
+
+@keyframes noise-1 {
+  0%, 100% { clip-path: inset(67% 0 30% 0); }
+  20% { clip-path: inset(18% 0 80% 0); }
+  40% { clip-path: inset(40% 0 43% 0); }
+  60% { clip-path: inset(2% 0 55% 0); }
+  80% { clip-path: inset(80% 0 5% 0); }
+}
+
+@keyframes noise-2 {
+  0%, 100% { clip-path: inset(10% 0 85% 0); }
+  20% { clip-path: inset(45% 0 35% 0); }
+  40% { clip-path: inset(80% 0 15% 0); }
+  60% { clip-path: inset(25% 0 60% 0); }
+  80% { clip-path: inset(5% 0 75% 0); }
+}
+
+.animate-glitch { animation: glitch 0.3s cubic-bezier(.25, .46, .45, .94) both infinite; }
+.animate-noise-1 { animation: noise-1 0.2s linear infinite; }
+.animate-noise-2 { animation: noise-2 0.2s linear reverse infinite; }
+
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
